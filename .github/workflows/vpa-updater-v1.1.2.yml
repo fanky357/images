@@ -1,10 +1,10 @@
-name: vpa-updater-v0.12.0
+name: vpa-updater-v1.1.2
 on:
   push:
     branches:
       - 'main'
     paths:
-      - '.github/workflows/vpa-updater-v0.12.0.yml'       
+      - '.github/workflows/vpa-updater-v1.1.2.yml'       
 
 jobs:
   build:
@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull k8s.gcr.io/autoscaling/vpa-updater:0.12.0
-          docker tag k8s.gcr.io/autoscaling/vpa-updater:0.12.0 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/vpa-updater:0.12.0
-          docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/vpa-updater:0.12.0
+          docker pull registry.k8s.io/autoscaling/vpa-updater:1.1.2
+          docker tag registry.k8s.io/autoscaling/vpa-updater:1.1.2 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/vpa-updater:1.1.2
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/vpa-updater:1.1.2
