@@ -1,0 +1,30 @@
+name: vpa-recommender-v1.1.2
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '.github/workflows/vpa-recommender-v1.1.2.yml'       
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker BuildX
+        uses: docker/setup-buildx-action@v2            
+
+      - name: Login in ALIYUN Registry
+        uses: docker/login-action@v1
+        with:
+          registry: registry-intl.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.ALIYUNHUB_USERNAME }}
+          password: ${{ secrets.ALIYUNHUB_TOKEN }}
+
+      - name: Build and push
+        run: |
+          docker pull registry.k8s.io/autoscaling/vpa-recommender:1.1.2
+          docker tag registry.k8s.io/autoscaling/vpa-recommender:1.1.2 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/vpa-recommender:1.1.2
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/vpa-recommender:1.1.2
