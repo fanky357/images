@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull ccr.ccs.tencentyun.com/devopsvip/ingress-nginx-controller:v1.2.0
-          docker tag ccr.ccs.tencentyun.com/devopsvip/ingress-nginx-controller:v1.2.0 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/ingress-nginx-controller:v1.2.0
+          docker pull k8s.gcr.io/ingress-nginx/controller:v1.2.0
+          docker tag k8s.gcr.io/ingress-nginx/controller:v1.2.0 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/ingress-nginx-controller:v1.2.0
           docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/ingress-nginx-controller:v1.2.0
