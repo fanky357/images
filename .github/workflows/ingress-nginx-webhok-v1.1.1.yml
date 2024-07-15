@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull ccr.ccs.tencentyun.com/devopsvip/ingress-nginx-webhok:v1.1.1
-          docker tag ccr.ccs.tencentyun.com/devopsvip/kind:v1.24.0 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/ingress-nginx-webhok:v1.1.1
-          docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/ingress-nginx-webhok:v1.1.1
+          docker pull k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1
+          docker tag k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/kube-webhook-certgen:v1.1.1
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/kube-webhook-certgen:v1.1.1
