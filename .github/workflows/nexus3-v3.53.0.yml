@@ -19,12 +19,12 @@ jobs:
       - name: Login in AliYun Registry
         uses: docker/login-action@v1
         with:
-          registry: registry.cn-hangzhou.aliyuncs.com
+          registry: registry-intl.cn-hangzhou.aliyuncs.com
           username: ${{ secrets.ALIYUNHUB_USERNAME }}
           password: ${{ secrets.ALIYUNHUB_TOKEN }}
 
       - name: Build and push
         run: |
           docker pull sonatype/nexus3:3.53.0
-          docker tag sonatype/nexus3:3.53.0 registry.cn-hangzhou.aliyuncs.com/jaronnie/nexus3:3.53.0
-          docker push registry.cn-hangzhou.aliyuncs.com/jaronnie/nexus3:3.53.0
+          docker tag sonatype/nexus3:3.53.0 registry-intl.cn-hangzhou.aliyuncs.com/fky357/nexus3:3.53.0
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/nexus3:3.53.0
