@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull registry.cn-shanghai.aliyuncs.com/labring/flannel:v0.20.1
-          docker tag registry.cn-shanghai.aliyuncs.com/labring/flannel:v0.20.1 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/flannel:v0.20.1
+          docker pull quay.io/coreos/flannel:v0.20.1
+          docker tag quay.io/coreos/flannel:v0.20.1 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/flannel:v0.20.1
           docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/flannel:v0.20.1
