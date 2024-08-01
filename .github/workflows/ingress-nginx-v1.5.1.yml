@@ -1,10 +1,10 @@
-name: controller-v1.5.1
+name: ingress-nginx-v1.5.1
 on:
   push:
     branches:
       - 'main'
     paths:
-      - '.github/workflows/controller-v1.5.1.yml'       
+      - '.github/workflows/ingress-nginx-v1.5.1.yml'       
 
 jobs:
   build:
@@ -26,5 +26,5 @@ jobs:
       - name: Build and push
         run: |
           docker pull registry.k8s.io/ingress-nginx/controller:v1.5.1@sha256:4ba73c697770664c1e00e9f968de14e08f606ff961c76e5d7033a4a9c593c629
-          docker tag registry.k8s.io/ingress-nginx/controller:v1.5.1@sha256:4ba73c697770664c1e00e9f968de14e08f606ff961c76e5d7033a4a9c593c629 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/controller:v1.5.1
-          docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/controller:v1.5.1
+          docker tag registry.k8s.io/ingress-nginx/controller:v1.5.1@sha256:4ba73c697770664c1e00e9f968de14e08f606ff961c76e5d7033a4a9c593c629 registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/ingress-nginx:v1.5.1
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/ingress-nginxr:v1.5.1
