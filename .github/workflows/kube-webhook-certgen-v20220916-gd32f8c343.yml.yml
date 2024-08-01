@@ -1,0 +1,30 @@
+name: kube-webhook-certgen-v20220916-gd32f8c343
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '.github/workflows/kube-webhook-certgen-v20220916-gd32f8c343.yml.yml'       
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker BuildX
+        uses: docker/setup-buildx-action@v2            
+
+      - name: Login in ALIYUN Registry
+        uses: docker/login-action@v1
+        with:
+          registry: registry-intl.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.ALIYUNHUB_USERNAME }}
+          password: ${{ secrets.ALIYUNHUB_TOKEN }}
+
+      - name: Build and push
+        run: |
+          docker pull registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20220916-gd32f8c343@sha256:39c5b2e3310dc4264d638ad28d9d1d96c4cbb2b2dcfb52368fe4e3c63f61e10f
+          docker tag registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20220916-gd32f8c343@sha256:39c5b2e3310dc4264d638ad28d9d1d96c4cbb2b2dcfb52368fe4e3c63f61e10f registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/kube-webhook-certgen:v20220916-gd32f8c343
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/kube-webhook-certgen:v20220916-gd32f8c343
