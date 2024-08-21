@@ -1,0 +1,30 @@
+name: openelb-controller-master
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '.github/workflows/openelb-controller-master.yml'       
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker BuildX
+        uses: docker/setup-buildx-action@v2            
+
+      - name: Login in ALIYUN Registry
+        uses: docker/login-action@v1
+        with:
+          registry: registry-intl.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.ALIYUNHUB_USERNAME }}
+          password: ${{ secrets.ALIYUNHUB_TOKEN }}
+
+      - name: Build and push
+        run: |
+          docker pull kubesphere/openelb-controller:master
+          docker tag  kubesphere/openelb-controller:master registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/openelb-controller:master
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/openelb-controller:master
