@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull k8s.gcr.io/kubesphere/openelb-speaker:master
-          docker tagk8s.gcr.io/kubesphere/openelb-speaker:master registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/openelb-speaker:master
+          docker pull kubesphere/openelb-speaker:master
+          docker tag  kubesphere/openelb-speaker:master registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/openelb-speaker:master
           docker push registry-intl.cn-hangzhou.aliyuncs.com/deveops_k8s/openelb-speaker:master
