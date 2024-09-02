@@ -26,5 +26,5 @@ jobs:
       - name: Build and push
         run: |
           docker pull docker.io/library/python:3.7-slim-bullseye
-          docker tag ccr.ccs.tencentyun.com/argocds/argocd:v2.6.7 registry-intl.cn-hangzhou.aliyuncs.com/fky357/python:3.7-slim-bullseye
+          docker tag docker.io/library/python:3.7-slim-bullseye registry-intl.cn-hangzhou.aliyuncs.com/fky357/python:3.7-slim-bullseye
           docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/python:3.7-slim-bullseye
