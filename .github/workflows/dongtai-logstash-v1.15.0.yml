@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull registry.cn-beijing.aliyuncs.com/huoxian_pub/dongtai-logstash:1.15.0
-          docker tag registry.cn-beijing.aliyuncs.com/huoxian_pub/dongtai-logstash:1.15.0 registry-intl.cn-hangzhou.aliyuncs.com/fky357/dongtai-logstash:1.15.0
-          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/dongtai-logstash:1.15.0
+          docker pull registry.cn-beijing.aliyuncs.com/huoxian_pub/dongtai-logstash:1.16.0
+          docker tag registry.cn-beijing.aliyuncs.com/huoxian_pub/dongtai-logstash:1.16.0 registry-intl.cn-hangzhou.aliyuncs.com/fky357/dongtai-logstash:1.16.0
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/dongtai-logstash:1.16.0
