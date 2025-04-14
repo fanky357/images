@@ -26,5 +26,5 @@ jobs:
       - name: Build and push
         run: |
           docker pull checkmarx/2ms:latest
-          docker tag checkmarx/2ms:latest registry-intl.cn-hangzhou.aliyuncs.com/fky357/checkmarx/2ms:latest
-          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/checkmarx/2ms:latest
+          docker tag checkmarx/2ms:latest registry-intl.cn-hangzhou.aliyuncs.com/fky357/2ms:latest
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/2ms:latest
