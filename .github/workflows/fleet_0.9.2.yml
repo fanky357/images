@@ -1,0 +1,30 @@
+name: fleet_0.9.2
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '.github/workflows/fleet_0.9.2.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker BuildX
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login in AliYun Registry
+        uses: docker/login-action@v1
+        with:
+          registry: registry-intl.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.ALIYUNHUB_USERNAME }}
+          password: ${{ secrets.ALIYUNHUB_TOKEN }}
+
+      - name: Build and push
+        run: |
+          docker pull rancher/fleet:v0.9.2
+          docker tag  rancher/fleet:v0.9.2 registry-intl.cn-hangzhou.aliyuncs.com/fky357/fleet:v0.9.2
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/fleet:v0.9.2
