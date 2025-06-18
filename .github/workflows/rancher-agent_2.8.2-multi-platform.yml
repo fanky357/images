@@ -38,15 +38,11 @@ jobs:
       # 不能简单地 docker pull + tag + push，否则只会推送当前 runner 架构（通常是 amd64）的那一个子镜像。
       - name: Mirror multi-arch image to Aliyun ACR
         run: |
-          docker buildx create --name mirror-builder --use || docker buildx use mirror-builder      
-          echo 'FROM rancher/rancher-agent@sha256:c200e336a23c8279e8748fb38d03bdb6d247b8561c4f1e09d8cf33bf6d495a51' > Dockerfile      
-          docker buildx build \
-            --platform linux/amd64,linux/arm64 \
-            --file Dockerfile \
-            --tag registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi \
-            --push \
-            .      
-          docker buildx rm mirror-builder
+          docker buildx create --name multi-builder --use || docker buildx use multi-builder
+          docker buildx imagetools create \
+          --tag registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi \
+          rancher/rancher-agent@sha256:c200e336a23c8279e8748fb38d03bdb6d247b8561c4f1e09d8cf33bf6d495a51     
+          
       # 用于验证推送的镜像是否支持 arm64
       - name: Check pushed image platforms
         run: |
