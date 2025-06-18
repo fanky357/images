@@ -1,10 +1,10 @@
-name: rancher-agent_2.8.2
+name: rancher-agent_2.8.2-arm64
 on:
   push:
     branches:
       - 'main'
     paths:
-      - '.github/workflows/rancher-agent_2.8.2.yml'
+      - '.github/workflows/rancher-agent_2.8.2-arm64.yml'
 
 jobs:
   build:
@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull rancher/rancher-agent:v2.8.2
-          docker tag  rancher/rancher-agent:v2.8.2 registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2
-          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2
+          docker pull docker pull rancher/rancher-agent@sha256:c200e336a23c8279e8748fb38d03bdb6d247b8561c4f1e09d8cf33bf6d495a51
+          docker tag  docker pull rancher/rancher-agent@sha256:c200e336a23c8279e8748fb38d03bdb6d247b8561c4f1e09d8cf33bf6d495a51 registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-arm64
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-arm64
