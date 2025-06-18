@@ -47,6 +47,7 @@ jobs:
             --push \
             .      
           docker buildx rm mirror-builder
+      # 用于验证推送的镜像是否支持 arm64
       - name: Check pushed image platforms
         run: |
           docker manifest inspect registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi | jq '.manifests[].platform'
