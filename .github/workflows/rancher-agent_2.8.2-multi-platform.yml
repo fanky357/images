@@ -41,10 +41,11 @@ jobs:
           docker buildx create --name multi-builder --use || docker buildx use multi-builder
           docker buildx imagetools create \
           --tag registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi \
-          rancher/rancher-agent:v2.8.2     
+          docker.io/rancher/rancher-agent:v2.8.2  
           
       # 用于验证推送的镜像是否支持 arm64
       - name: Check pushed image platforms
         run: |
           docker manifest inspect registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi | jq '.manifests[].platform'
+          docker run --rm --platform linux/arm64 registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi file /usr/bin/run.sh
           docker run --rm --platform linux/arm64 registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi file /agent
