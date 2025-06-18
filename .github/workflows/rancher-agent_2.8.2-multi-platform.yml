@@ -47,5 +47,5 @@ jobs:
       - name: Check pushed image platforms
         run: |
           docker manifest inspect registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi | jq '.manifests[].platform'
-          docker run --rm --platform linux/arm64 registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi file /usr/bin/run.sh
+          docker run --rm --platform linux/amd64 registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi file /usr/bin/run.sh
           docker run --rm --platform linux/arm64 registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher-agent:v2.8.2-multi file /agent
