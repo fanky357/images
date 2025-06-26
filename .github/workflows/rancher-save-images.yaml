@@ -19,9 +19,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         
-      - name: Clean up existing Docker images
+      - name: Remove all Docker images
         run: |
-          docker image prune -a -f || true      
+          docker rmi -f $(docker images -q) || true 
           
       - name: Save Rancher images
         run: |
