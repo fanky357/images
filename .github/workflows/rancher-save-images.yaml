@@ -15,7 +15,10 @@ jobs:
 
       - name: Set up Docker BuildX
         uses: docker/setup-buildx-action@v2
-
+        
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        
       - name: Save Rancher images
         run: |
           chmod +x rancher-save-images-v2.11.3.sh
