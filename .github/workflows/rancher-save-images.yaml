@@ -1,0 +1,28 @@
+name: rancher-save-images
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '.github/workflows/rancher-save-images.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker BuildX
+        uses: docker/setup-buildx-action@v2
+
+      - name: Save Rancher images
+        run: |
+          chmod +x rancher-save-images.sh
+          ./rancher-save-images.sh --image-list rancher-images.txt
+
+      - name: Upload rancher-images.tar.gz
+        uses: actions/upload-artifact@v4
+        with:
+          name: rancher-images
+          path: rancher-images.tar.gz
