@@ -13,7 +13,6 @@ usage () {
     echo "  [-h|--help] Show help message"
 }
 
-# 参数解析
 while [[ $# -gt 0 ]]; do
     key="$1"
     case $key in
