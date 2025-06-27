@@ -53,6 +53,7 @@ docker buildx create --name multiarch --use >/dev/null 2>&1 || docker buildx use
 
 # 镜像拉取
 pulled=()
+failed=()
 while IFS= read -r i; do
     [ -z "$i" ] && continue
     image="${source_registry}${i}"
@@ -63,18 +64,31 @@ while IFS= read -r i; do
             pulled+=("$image")
         else
             echo "Pull failed: $image"
+            failed+=("$image")
         fi
     else
         echo "Image not found or failed: $image"
+        failed+=("$image")
     fi
 done < "$list"
 
 # 保存镜像
 echo "Saving ${#pulled[@]} images to ${images}"
 #docker save "${pulled[@]}" | gzip > "$images"
-if [ -n "$pulled" ]; then
-  echo "Saving $(echo $pulled | wc -w) images to $images"
-  docker save $pulled | gzip > "$images"
+
+# 保存镜像
+if [ ${#pulled[@]} -gt 0 ]; then
+    echo "Saving ${#pulled[@]} images to ${images}"
+    docker save "${pulled[@]}" | gzip > "$images"
 else
-  echo "No images pulled successfully, nothing to save."
+    echo "No images pulled successfully, nothing to save."
+fi
+
+# 输出失败镜像
+if [ ${#failed[@]} -gt 0 ]; then
+    echo ""
+    echo "The following ${#failed[@]} images failed to pull:"
+    for f in "${failed[@]}"; do
+        echo "  $f"
+    done
 fi
