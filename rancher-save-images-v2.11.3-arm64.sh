@@ -59,8 +59,11 @@ while IFS= read -r i; do
 
     echo "Pulling image: $image for platform: $platform"
     if docker buildx imagetools inspect "$image" --format '{{json .}}' >/dev/null 2>&1; then
-        docker pull --platform "$platform" "$image"
-        pulled+=("$image")
+        if docker pull --platform "$platform" "$image"; then
+            pulled+=("$image")
+        else
+            echo "Pull failed: $image"
+        fi
     else
         echo "Image not found or failed: $image"
     fi
@@ -73,5 +76,5 @@ if [ -n "$pulled" ]; then
   echo "Saving $(echo $pulled | wc -w) images to $images"
   docker save $pulled | gzip > "$images"
 else
-  echo "No images to save"
+  echo "No images pulled successfully, nothing to save."
 fi
