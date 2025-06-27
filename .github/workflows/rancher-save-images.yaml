@@ -26,7 +26,7 @@ jobs:
       - name: Save Rancher images
         run: |
           chmod +x rancher-save-images-v2.11.3.sh
-          ./rancher-save-images-v2.11.3.sh --image-list rancher-images-v2.11.3-07.txt
+          ./rancher-save-images-v2.11.3.sh --image-list rancher-images-v2.11.3-08.txt
           
       - name: Upload rancher-images.tar.gz
         uses: actions/upload-artifact@v4
