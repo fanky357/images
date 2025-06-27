@@ -68,4 +68,10 @@ done < "$list"
 
 # 保存镜像
 echo "Saving ${#pulled[@]} images to ${images}"
-docker save "${pulled[@]}" | gzip > "$images"
+#docker save "${pulled[@]}" | gzip > "$images"
+if [ -n "$pulled" ]; then
+  echo "Saving $(echo $pulled | wc -w) images to $images"
+  docker save $pulled | gzip > "$images"
+else
+  echo "No images to save"
+fi
