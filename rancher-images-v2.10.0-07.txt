@@ -1,4 +1,4 @@
-ancher/rke2-cloud-provider:v1.28.13-build20240910
+rancher/rke2-cloud-provider:v1.28.13-build20240910
 rancher/rke2-cloud-provider:v1.28.15-0.20241016053552-63bfb1936862-build20241016
 rancher/rke2-cloud-provider:v1.29.10-0.20241016053521-9510ac25fefb-build20241016
 rancher/rke2-cloud-provider:v1.29.8-build20240910
