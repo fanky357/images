@@ -27,10 +27,10 @@ jobs:
         run: |
           docker buildx create --name multi-builder --use || docker buildx use multi-builder
           docker buildx imagetools create \
-          --tag registry-intl.cn-hangzhou.aliyuncs.com/fky357/mirrored-coredns-coredns:1.12.0 \
-          docker.io/rancher/mirrored-coredns-coredns:1.12.0
+          --tag registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher:stable \
+          docker.io/rancher/rancher:stable
           
       # 用于验证推送的镜像是否支持 arm64
       - name: Check pushed image platforms
         run: |
-          docker manifest inspect registry-intl.cn-hangzhou.aliyuncs.com/fky357/mirrored-coredns-coredns:1.12.0 | jq '.manifests[].platform'
+          docker manifest inspect registry-intl.cn-hangzhou.aliyuncs.com/fky357/rancher:stable | jq '.manifests[].platform'
