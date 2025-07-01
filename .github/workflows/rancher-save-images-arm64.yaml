@@ -31,7 +31,7 @@ jobs:
       - name: Save Rancher images (arm64)
         run: |
           chmod +x rancher-save-images-v2.11.3-arm64.sh
-          ./rancher-save-images-v2.11.3-arm64.sh --image-list rancher-images-v2.10.0-08.txt --images rancher-images-arm64.tar.gz --platform linux/arm64
+          ./rancher-save-images-v2.11.3-arm64.sh --image-list rancher-images-v2.10.0-09.txt --images rancher-images-arm64.tar.gz --platform linux/arm64
           
       - name: Upload rancher-images-arm64.tar.gz
         uses: actions/upload-artifact@v4
