@@ -1,0 +1,3 @@
+rancher/istio-installer:1.19.6-rancher1
+rancher/istio-installer:1.20.3-rancher1
+rancher/istio-installer:1.21.1-rancher1
