@@ -1,1 +1,1 @@
-rancher/fleet-agent:v0.12.4
+rancher/rke2-runtime:v1.32.6-rke2r1
