@@ -1,0 +1,9 @@
+rancher/hardened-multus-cni:v4.1.0-build20240910
+rancher/hardened-multus-cni:v4.1.2-build20241011
+rancher/hardened-whereabouts:v0.8.0-build20240910
+rancher/hardened-whereabouts:v0.8.0-build20241011
+rancher/harvester-cloud-provider:v0.2.2
+rancher/harvester-csi-driver:v0.1.7
+rancher/harvester-csi-driver:v0.2.1
+rancher/harvester-csi-driver:v0.2.2
+rancher/hyperkube:v1.28.15-rancher1
