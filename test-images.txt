@@ -1,1 +1,2 @@
 rancher/hardened-kubernetes:v1.32.6-rke2r1-build20250618
+rancher/rke2-cloud-provider:v1.32.5-rc1.0.20250516182639-8e8f2a4726fd-build20250612
