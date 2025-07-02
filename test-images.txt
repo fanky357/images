@@ -1,1 +1,1 @@
-rancher/rke2-runtime:v1.32.6-rke2r1
+rancher/hardened-kubernetes:v1.32.6-rke2r1-build20250618
