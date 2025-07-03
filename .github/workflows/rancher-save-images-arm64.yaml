@@ -38,4 +38,3 @@ jobs:
         with:
           name: rancher-images-arm64
           path: rancher-images-arm64.tar.gz
-          
