@@ -26,5 +26,5 @@ jobs:
       - name: Build and push
         run: |
           docker pull pub.kiwitcms.eu/kiwitcms/kiwi:latest
-          docker tag pub.kiwitcms.eu/kiwitcms/kiwi:latestregistry-intl.cn-hangzhou.aliyuncs.com/fky357/kiwi:latest
+          docker tag pub.kiwitcms.eu/kiwitcms/kiwi:latest registry-intl.cn-hangzhou.aliyuncs.com/fky357/kiwi:latest
           docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/kiwi:latest
