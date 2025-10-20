@@ -1,10 +1,10 @@
-name: gitlab_ce_latest
+name: gitlab_ce_14.10.0
 on:
   push:
     branches:
       - 'main'
     paths:
-      - '.github/workflows/gitlab_ce_latest.yml'
+      - '.github/workflows/gitlab_ce_14.10.0.yml'
 
 jobs:
   build:
@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull gitlab/gitlab-ce:latest
-          docker tag gitlab/gitlab-ce:latest registry-intl.cn-hangzhou.aliyuncs.com/fky357/gitlab-ce:latest
-          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/gitlab-ce:latest
+          docker pull  gitlab/gitlab-ce:14.10.0
+          docker tag gitlab/gitlab-ce:14.10.0 registry-intl.cn-hangzhou.aliyuncs.com/fky357/gitlab-ce:14.10.0
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/gitlab-ce:14.10.0
