@@ -1,10 +1,10 @@
-name: gitlab-ce_latest.yml
+name: gitlab_ce_latest
 on:
   push:
     branches:
       - 'main'
     paths:
-      - '.github/workflows/gitlab-ce_latest.yml'
+      - '.github/workflows/gitlab_ce_latest.yml'
 
 jobs:
   build:
