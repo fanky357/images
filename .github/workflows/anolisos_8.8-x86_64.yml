@@ -1,10 +1,10 @@
-name: anolisos_8.9-x86_64
+name: anolisos_8.8-x86_64
 on:
   push:
     branches:
       - 'main'
     paths:
-      - '.github/workflows/anolisos_8.9-x86_64.yml'
+      - '.github/workflows/anolisos_8.8-x86_64.yml'
 
 jobs:
   build:
@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull openanolis/anolisos:8.9-x86_64
-          docker tag  openanolis/anolisos:8.9-x86_64 registry-intl.cn-hangzhou.aliyuncs.com/fky357/anolisos:8.9-x86_64
-          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/anolisos:8.9-x86_64
+          docker pull openanolis/anolisos:8.8-x86_64
+          docker tag  openanolis/anolisos:8.8-x86_64 registry-intl.cn-hangzhou.aliyuncs.com/fky357/anolisos:8.8-x86_64
+          docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/anolisos:8.8-x86_64
