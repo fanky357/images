@@ -29,12 +29,18 @@ jobs:
 
           docker pull --platform linux/arm64 "$SOURCE_IMAGE"
 
-          architecture="$(docker image inspect \
-            --format '{{.Architecture}}' "$SOURCE_IMAGE")"
+          # 明确检查 ARM64 平台，并通过 JSON 读取架构
+          docker image inspect \
+            --platform linux/arm64 \
+            "$SOURCE_IMAGE" > image-inspect.json
+
+          architecture="$(jq -r '.[0].Architecture // empty' image-inspect.json)"
 
           echo "Image architecture: $architecture"
+
           if [ "$architecture" != "arm64" ]; then
-            echo "ERROR: Expected arm64, got $architecture" >&2
+            echo "ERROR: Expected arm64, got '$architecture'" >&2
+            cat image-inspect.json
             exit 1
           fi
 
