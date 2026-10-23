@@ -25,6 +25,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker pull ndocker.1ms.run/library/node:20.12.1
+          docker pull docker.1ms.run/library/node:20.12.1
           docker tag docker.1ms.run/library/node:20.12.1 registry-intl.cn-hangzhou.aliyuncs.com/fky357/node:20.12.1-amd64
           docker push registry-intl.cn-hangzhou.aliyuncs.com/fky357/node:20.12.1-amd64
